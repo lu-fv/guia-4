@@ -1,3 +1,5 @@
+import java.text.MessageFormat;
+
 public class Film {
     private Integer min;
     private Integer stock;
@@ -65,13 +67,6 @@ public class Film {
 
     @Override
     public String toString() {
-        return "Film{" +
-                "min=" + min +
-                ", stock=" + stock +
-                ", title='" + title + '\'' +
-                ", category=" + category +
-                ", origin='" + origin + '\'' +
-                ", genero=" + genero +
-                '}';
+        return MessageFormat.format("\nFilm'{'\nmin={0},\nstock={1},\ntitle=''{2}'',\ncategory={3},\norigin=''{4}'',\ngenero= {5}", min, stock, title, category, origin, genero);
     }
 }

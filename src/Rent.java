@@ -42,11 +42,13 @@ public class Rent {
 
     @Override
     public String toString() {
-        return "Rent{" +
-                "film=" + film +
-                ", client=" + client +
-                ", loan=" + loan +
-                ", devolution=" + devolution +
+        return "--------------------------\n" +
+               "Rent: " +
+                "\nid=" + id +
+                /*"film="*/  film +
+                /*", client=" +*/ client +
+                ",\nloan=" + loan +
+                ",\ndevolution=" + devolution +
                 '}';
     }
 }

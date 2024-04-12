@@ -35,7 +35,7 @@ public class VideoStore {
 
         Film movie1 = new Film(120, 5, "Cinderella", AudienceClassification.G, "USA", Genere.ADVENTURE);
         Film movie2 = new Film(125, 2, "The thing", AudienceClassification.R, "USA", Genere.HORROR);
-        Film movie3 = new Film(130, 3, "King Kong", AudienceClassification.PG, "USA", Genere.ACCION);
+        Film movie3 = new Film(130, 3, " King Kong ", AudienceClassification.PG, "USA", Genere.ACCION);
         Film movie4 = new Film(128, 4, "Godzilla", AudienceClassification.G, "JAP", Genere.ACCION);
         Film movie5 = new Film(132, 1, "Hitler", AudienceClassification.NC_17, "GER", Genere.DOCUMENTAL);
         Film movie6 = new Film(160, 3, "The Avenger", AudienceClassification.PG_13, "USA", Genere.ADVENTURE);
@@ -118,7 +118,6 @@ public class VideoStore {
         }
         return null;
     }
-
     public void vigentes (LocalDate dateNow){
 
         for (Rent r : rents) {
@@ -130,6 +129,26 @@ public class VideoStore {
             }
         }
     }
+    public VideoStore deleteRent (int id){
+        for (int i=0;i< rents.length; i++){
+            if (rents[i]!=null && rents[i].getId()==id){
+                rents[i]= null ;
+            }
+        }
+        return null;
+    }
+
+    public void returns (int rentId) {
+        Rent r = SearchRent((rentId));
+               if (r != null) {
+                String film = r.getFilm().getTitle();
+                Film f = SearchFilm(film);
+                f.setStock(f.getStock() + 1);
+                deleteRent(rentId);
+                }
+            }
+
+
     @Override
     public String toString() {
         return "VideoStore{" +

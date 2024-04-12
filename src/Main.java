@@ -18,10 +18,20 @@ public class Main {
       //  mostrarRent(vs);
         System.out.println("\n=== Rent 1");
         System.out.println(vs.rental("Elements", "Lucia"));
+        System.out.println( "--------------------------\n");
+
+        System.out.println("\n=== Rent 2");
+        System.out.println(vs.rental("The Avenger", "Lucia"));
+        System.out.println( "--------------------------\n");
+
+        System.out.println("\n=== Rent 3");
+        System.out.println(vs.rental("Cinderella", "Lucia"));
+
+
 
        Film film = vs.SearchFilm("Elements");
         if (film!=null){
-            System.out.println("Pelicula encontrada "+ film.getTitle());
+            System.out.println("\n Pelicula encontrada: "+ film.getTitle());
         }
         else{
             System.out.println("Pelicula no encontrada" );
@@ -34,8 +44,10 @@ public class Main {
         else{
             System.out.println(vs.addNewClient("Lisa", "Matheu 2617", "2235221931") );
 
-                               // vs.addNewClient("Lisa", "Matheu 2617", "2235221931");
         }
+
+        vs.deleteRent(2);
+        mostrarRent(vs);
     }
 
     public static void mostrarRent (VideoStore vs){
