@@ -35,10 +35,10 @@ private String tel;
 
     @Override
     public String toString() {
-        return "Client{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", tel='" + tel + '\'' +
+        return "\nClient { " +
+                "\nname='" + name + '\'' +
+                ",\naddress='" + address + '\'' +
+                ",\ntel='" + tel + '\'' +
                 '}';
     }
 }

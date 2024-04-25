@@ -1,10 +1,14 @@
-public class Film {
+import java.text.MessageFormat;
+
+public class Film implements Comparable<Film> {
     private Integer min;
     private Integer stock;
+
     private String title;
     private AudienceClassification category;
-    private  String origin;
+    private String origin;
     private Genere genero;
+    private Integer cont = 0;
 
     public Film(Integer min, Integer stock, String title, AudienceClassification category, String origin, Genere genero) {
         this.min = min;
@@ -13,6 +17,10 @@ public class Film {
         this.category = category;
         this.origin = origin;
         this.genero = genero;
+
+    }
+
+    public Film() {
     }
 
     public Integer getMin() {
@@ -63,15 +71,23 @@ public class Film {
         this.genero = genero;
     }
 
+    public Integer getCont() {
+        return cont;
+    }
+
+    public void setCont(Integer cont) {
+        this.cont = cont;
+    }
+
+    @Override
+    public int compareTo(Film o) {
+        return this.getCont().compareTo(o.getCont());
+    }
+
     @Override
     public String toString() {
-        return "Film{" +
-                "min=" + min +
-                ", stock=" + stock +
-                ", title='" + title + '\'' +
-                ", category=" + category +
-                ", origin='" + origin + '\'' +
-                ", genero=" + genero +
-                '}';
+        return MessageFormat.format("\nFilm'{'\nmin={0},\nstock={1},\ntitle=''{2}'',\ncategory={3},\norigin=''{4}'',\ngenero= {5}", min, stock, title, category, origin, genero);
     }
+
+
 }
